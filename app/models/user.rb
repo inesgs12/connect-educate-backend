@@ -8,4 +8,6 @@ class User < ApplicationRecord
 
   scope :parents, -> { where(type: :parent) }
   scope :volunteers, -> { where(type: :volunteer) }
+
+  has_many :messages
 end
