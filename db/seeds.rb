@@ -14,6 +14,6 @@
     first_name: "first_name_#{i}",
     last_name: "last_name_#{i}",
     bio: "I am volunteer ##{i} and I love connect-educate :D",
-    birth_date: "#{i}/12/1994" 
+    birth_date: "#{i+1}/12/1994" 
   )
 end
