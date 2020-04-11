@@ -2,7 +2,7 @@ module Api
   module V1
     class VolunteersController < ApplicationController
       def index
-          volunteers = Volunteer.all 
+          volunteers = Volunteer.all
           render json: volunteers
       end
 
