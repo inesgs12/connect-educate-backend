@@ -10,11 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_11_145352) do
-
+ActiveRecord::Schema.define(version: 2020_04_11_170942) do
   create_table "jwt_blacklist", force: :cascade do |t|
     t.string "jti", null: false
     t.index ["jti"], name: "index_jwt_blacklist_on_jti"
+
+  create_table "languages", force: :cascade do |t|
+    t.string "name"
+    t.string "level"
+    t.integer "volunteer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["volunteer_id"], name: "index_languages_on_volunteer_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -23,6 +30,16 @@ ActiveRecord::Schema.define(version: 2020_04_11_145352) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "skills", force: :cascade do |t|
+    t.string "name"
+    t.string "level"
+    t.integer "years_of_experience"
+    t.integer "volunteer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["volunteer_id"], name: "index_skills_on_volunteer_id"
   end
 
   create_table "users", force: :cascade do |t|
