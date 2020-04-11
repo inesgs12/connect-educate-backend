@@ -22,3 +22,6 @@
   volunteer.languages.create!(name: "language #{i}", level: 'native')
   volunteer.languages.create!(name: "language #{i}", level: 'native')
 end
+
+
+# We should create an Anonymous user so that Posts can have user_id as a reference, in case people do want to be logged in and post with their name appearing. As this would be required, then when Anon is selected a fake user should be appointed to this post?

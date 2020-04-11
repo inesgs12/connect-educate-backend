@@ -32,6 +32,36 @@ ActiveRecord::Schema.define(version: 2020_04_11_170942) do
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
+  create_table "posts", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "english_proficiency"
+    t.string "post_language"
+    t.integer "childs_age"
+    t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
+  create_table "posts_languages", force: :cascade do |t|
+    t.integer "post_id"
+    t.integer "language_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["language_id"], name: "index_posts_languages_on_language_id"
+    t.index ["post_id"], name: "index_posts_languages_on_post_id"
+  end
+
+  create_table "posts_skills", force: :cascade do |t|
+    t.integer "post_id"
+    t.integer "skill_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_posts_skills_on_post_id"
+    t.index ["skill_id"], name: "index_posts_skills_on_skill_id"
+  end
+
   create_table "skills", force: :cascade do |t|
     t.string "name"
     t.string "level"
