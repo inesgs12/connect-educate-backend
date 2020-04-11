@@ -4,7 +4,7 @@ class CreateSkills < ActiveRecord::Migration[5.2]
       t.string :name
       t.string :level
       t.integer :years_of_experience
-      t.references :volunteer, foreign_key: true
+      t.references :user, foreign_key: true
 
       t.timestamps
     end
