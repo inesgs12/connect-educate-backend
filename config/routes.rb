@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   resources :posts_languages
   resources :posts_skills
-  resources :posts
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
+      resources :posts
       resources :messages
       resources :volunteers
     end

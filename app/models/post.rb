@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-  belongs_to :user
+  # belongs_to :user
   has_many :posts_skills
   has_many :skills, through: :posts_skills
   has_many :posts_languages
