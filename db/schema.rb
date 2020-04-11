@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_11_162956) do
+ActiveRecord::Schema.define(version: 2020_04_11_170927) do
 
   create_table "messages", force: :cascade do |t|
     t.text "content"
@@ -26,7 +26,19 @@ ActiveRecord::Schema.define(version: 2020_04_11_162956) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "english_proficiency"
+    t.string "post_language"
+    t.integer "childs_age"
     t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
+  create_table "posts_languages", force: :cascade do |t|
+    t.integer "post_id"
+    t.integer "language_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["language_id"], name: "index_posts_languages_on_language_id"
+    t.index ["post_id"], name: "index_posts_languages_on_post_id"
   end
 
   create_table "posts_skills", force: :cascade do |t|
