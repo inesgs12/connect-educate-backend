@@ -3,7 +3,7 @@ class CreateLanguages < ActiveRecord::Migration[5.2]
     create_table :languages do |t|
       t.string :name
       t.string :level
-      t.references :skill, foreign_key: true
+      t.references :volunteer, foreign_key: true
 
       t.timestamps
     end
