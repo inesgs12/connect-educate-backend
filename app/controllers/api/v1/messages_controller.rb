@@ -2,7 +2,7 @@ module Api
     module V1
         class MessagesController < ApplicationController
 
-            ef index
+            def index
                 messages = Message.all 
                 render json: messages
             end
