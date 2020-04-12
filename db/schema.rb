@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_12_125254) do
+ActiveRecord::Schema.define(version: 2020_04_12_132618) do
 
   create_table "jwt_blacklist", force: :cascade do |t|
     t.string "jti", null: false
@@ -71,6 +71,8 @@ ActiveRecord::Schema.define(version: 2020_04_12_125254) do
     t.string "type"
     t.text "bio"
     t.date "birth_date"
+    t.integer "english_proficiency"
+    t.string "preferred_language"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
