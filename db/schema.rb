@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_12_132618) do
+ActiveRecord::Schema.define(version: 2020_04_12_171212) do
 
   create_table "jwt_blacklist", force: :cascade do |t|
     t.string "jti", null: false
@@ -38,10 +38,10 @@ ActiveRecord::Schema.define(version: 2020_04_12_132618) do
     t.integer "name"
     t.string "level"
     t.integer "years_of_experience"
-    t.integer "user_id"
+    t.integer "volunteer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_skills_on_user_id"
+    t.index ["volunteer_id"], name: "index_skills_on_volunteer_id"
   end
 
   create_table "tasks", force: :cascade do |t|
@@ -50,11 +50,11 @@ ActiveRecord::Schema.define(version: 2020_04_12_132618) do
     t.datetime "updated_at", null: false
     t.string "task_language"
     t.integer "childs_age"
-    t.integer "skill_id"
+    t.string "skill"
     t.integer "parent_id"
     t.integer "volunteer_id"
     t.index ["parent_id"], name: "index_tasks_on_parent_id"
-    t.index ["skill_id"], name: "index_tasks_on_skill_id"
+    t.index ["skill"], name: "index_tasks_on_skill"
     t.index ["volunteer_id"], name: "index_tasks_on_volunteer_id"
   end
 

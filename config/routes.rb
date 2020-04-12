@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
       resources :tasks
+      post 'create_parent_and_task',  to: 'tasks#create_parent_and_task'
       resources :messages
       resources :volunteers
       resources :languages
