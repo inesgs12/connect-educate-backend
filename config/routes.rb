@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       resources :messages
       resources :volunteers
       resources :languages
+      resources :skills
     end
   end
 
