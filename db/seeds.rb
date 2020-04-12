@@ -33,12 +33,15 @@ parent = Parent.create!(
   birth_date: "23/01/1994"
 )
 parent.save
-task = Task.create!(content: 'cool content', skill: 'really cool skill', parent_id: parent.id)
+task = Task.create!(content: 'I would like help with maths', skill: 'maths', parent_id: parent.id)
 task.save
-task2 = Task.create!(content: 'cool content', skill: 'another cool skill', parent_id: parent.id)
+task2 = Task.create!(content: 'I would like help with physics', skill: 'science', parent_id: parent.id)
 task2.save
-Message.create!(content: 'im a message', user_id: parent.id, task_id: task.id)
-Message.create!(content: 'im another message', user_id: parent.id, task_id: task2.id)
+task3 = Task.create!(content: 'I would like help with chemistry', skill: 'science', parent_id: parent.id)
+task3.save
+Message.create!(content: 'im task 1 message', user_id: parent.id, task_id: task.id)
+Message.create!(content: 'im another task 1 message', user_id: parent.id, task_id: task.id)
+Message.create!(content: 'im a task 2 message', user_id: parent.id, task_id: task2.id)
 
 
 # We should create an Anonymous user so that Posts can have user_id as a reference, in case people do want to be logged in and post with their name appearing. As this would be required, then when Anon is selected a fake user should be appointed to this post?
