@@ -10,12 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-
 ActiveRecord::Schema.define(version: 2020_04_12_171212) do
-=======
-ActiveRecord::Schema.define(version: 2020_04_12_141848) do
->>>>>>> Add auth to assign volunteer and message thread endpoints
 
   create_table "jwt_blacklist", force: :cascade do |t|
     t.string "jti", null: false
