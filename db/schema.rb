@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_12_121000) do
+ActiveRecord::Schema.define(version: 2020_04_12_125254) do
 
   create_table "jwt_blacklist", force: :cascade do |t|
     t.string "jti", null: false
@@ -34,18 +34,6 @@ ActiveRecord::Schema.define(version: 2020_04_12_121000) do
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
-  create_table "posts", force: :cascade do |t|
-    t.string "title"
-    t.text "content"
-    t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "english_proficiency"
-    t.string "post_language"
-    t.integer "childs_age"
-    t.index ["user_id"], name: "index_posts_on_user_id"
-  end
-
   create_table "skills", force: :cascade do |t|
     t.integer "name"
     t.string "level"
@@ -54,6 +42,20 @@ ActiveRecord::Schema.define(version: 2020_04_12_121000) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_skills_on_user_id"
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "task_language"
+    t.integer "childs_age"
+    t.integer "skill_id"
+    t.integer "parent_id"
+    t.integer "volunteer_id"
+    t.index ["parent_id"], name: "index_tasks_on_parent_id"
+    t.index ["skill_id"], name: "index_tasks_on_skill_id"
+    t.index ["volunteer_id"], name: "index_tasks_on_volunteer_id"
   end
 
   create_table "users", force: :cascade do |t|
