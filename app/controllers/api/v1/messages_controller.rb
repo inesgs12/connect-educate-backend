@@ -32,7 +32,10 @@ module Api
             # can we send attachments? 
 
             def message_params
-                params.require(:content, :user_id)
+                params.require(:content)
+                params.require(:user_id)
+                params.require(:task_id)
+                params.permit(:content, :user_id, :task_id)
             end
             
         end

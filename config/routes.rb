@@ -7,6 +7,9 @@ Rails.application.routes.draw do
       resources :volunteers
       resources :languages
       resources :skills
+      resources :assign_volunteer, path: 'assign-volunteer'
+      resources :unassign_volunteer, path: 'unassign-volunteer'
+      resources :message_thread, path: 'message-thread'
     end
   end
 
