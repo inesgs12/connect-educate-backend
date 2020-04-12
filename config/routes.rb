@@ -6,6 +6,8 @@ Rails.application.routes.draw do
       resources :posts
       resources :messages
       resources :volunteers
+      resources :languages
+      resources :skills
     end
   end
 

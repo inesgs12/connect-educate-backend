@@ -30,6 +30,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'devise'
 gem 'devise-jwt'
+gem 'language_list', '~> 1.2', '>= 1.2.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
