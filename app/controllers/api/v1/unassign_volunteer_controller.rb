@@ -2,6 +2,8 @@ module Api
   module V1
     class UnassignVolunteerController < ApplicationController
       def update
+        params.require(:id)
+        params.require(:volunteer)
         task_id = params[:id]
         volunteer_id = params[:volunteer]
         task = Task.where(id: task_id).where(volunteer_id: volunteer_id)
