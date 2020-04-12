@@ -19,7 +19,8 @@ module Api
             end
 
             def create
-                task = Task.new(task_params)
+                task = Task.new(params[:task])
+                
                 if task.valid?
                     task.save
                     render json: task
@@ -28,13 +29,25 @@ module Api
                         error: "Please fill out all required fields"
                     }
                 end
+
+                user = User.new(params[:user])
+
+                if user.valid>
+                    user.save
+                    render json: user
+                else
+                    render json: {
+                        error: "User not saved"
+                    }
+                end
             end
 
             private
 
-            def task_params
-                params.require(:content, :parent_id, :skill_id).permit(:volunteer_id, :task_language, :english_proficiency, :childs_age)
-            end
+            # def task_params
+            #     # params.require(:content, :parent_id, :skill_id).permit(:volunteer_id, :task_language, :childs_age)
+            #     params.require(:task)
+            # end
 
         end
     end
