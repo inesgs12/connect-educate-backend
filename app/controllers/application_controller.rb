@@ -34,5 +34,11 @@ class ApplicationController < ActionController::API
                                         bio
                                         birth_date
                                       ])
+
+    devise_parameter_sanitizer.permit(:sign_in,
+                                        keys: %i[
+                                          email
+                                          password
+                                        ])
   end
 end
