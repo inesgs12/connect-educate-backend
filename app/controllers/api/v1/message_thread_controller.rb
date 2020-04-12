@@ -5,7 +5,7 @@ module Api
         task_id = params[:id]
         messages = Message.where(task_id: task_id)
         if !messages.empty?
-          render json: message
+          render json: messages
         else
           render json: { error: 'Messages not found.' }, status: 404
         end
