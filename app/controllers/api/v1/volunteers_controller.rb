@@ -3,7 +3,9 @@ module Api
     class VolunteersController < ApplicationController
       def index
           volunteers = Volunteer.all
-          render json: volunteers
+          # render json: volunteers
+
+          render json: volunteers, include: ['skills', 'languages']
       end
 
       def show
