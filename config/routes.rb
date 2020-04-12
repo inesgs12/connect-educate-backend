@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       resources :assign_volunteer, path: 'assign-volunteer'
       resources :unassign_volunteer, path: 'unassign-volunteer'
       resources :message_thread, path: 'message-thread'
+      resources :message_threads_for_parent, path: 'message-threads'
     end
   end
 
