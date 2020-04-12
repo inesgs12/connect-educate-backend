@@ -30,6 +30,7 @@ gem 'rack-cors'
 
 gem 'devise'
 gem 'devise-jwt'
+gem 'jwt'
 gem 'language_list', '~> 1.2', '>= 1.2.1'
 gem 'warden'
 gem 'simple_token_authentication'
