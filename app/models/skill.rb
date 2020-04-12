@@ -1,5 +1,7 @@
 class Skill < ApplicationRecord
+  SKILLS = ['Maths', 'English', 'Physics', 'Chemistry', 'Biology', 'Geography', 'History', 'Programming']
+
   belongs_to :volunteer
 
-  enum name: { maths: 0, english: 1, physics: 2, chemistry: 3, biology: 4, geography: 5, history: 6, computer_science: 7 }
+  enum name: Hash[SKILLS.map.with_index { |l, i| [ l, i+1 ] }] 
 end
