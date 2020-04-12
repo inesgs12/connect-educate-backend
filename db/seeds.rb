@@ -7,14 +7,20 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 10.times do |i|
-  Volunteer.create(
+  volunteer = Volunteer.create!(
     email: "test#{i}@email.com",
     encrypted_password: "password#{i}",
+    password: "password#{i}",
     first_name: "first_name_#{i}",
     last_name: "last_name_#{i}",
     bio: "I am volunteer ##{i} and I love connect-educate :D",
-    birth_date: "#{i+1}/12/1994" 
+    birth_date: "#{i+1}/12/1994"
   )
+  volunteer.save
+  volunteer.skills.create!(name: 1, level: 'beginner', years_of_experience: 1)
+  volunteer.skills.create!(name: 8, level: 'intermediate', years_of_experience: 3)
+  volunteer.languages.create!(name: 2, level: 'native')
+  volunteer.languages.create!(name: 3, level: 'fluent')
 end
 
 

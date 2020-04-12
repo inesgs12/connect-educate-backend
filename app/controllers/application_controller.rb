@@ -29,6 +29,10 @@ class ApplicationController < ActionController::API
                                         email
                                         password
                                         type
+                                        first_name
+                                        last_name
+                                        bio
+                                        birth_date
                                       ])
   end
 end
