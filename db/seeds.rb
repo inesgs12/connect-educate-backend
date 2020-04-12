@@ -17,8 +17,8 @@
     birth_date: "#{i+1}/12/1994"
   )
   volunteer.save
-  volunteer.skills.create!(name: "cool skill #{i}", level: 'beginner', years_of_experience: 1)
-  volunteer.skills.create!(name: "another cool skill #{i}", level: 'intermediate', years_of_experience: 3)
+  volunteer.skills.create!(name: 1, level: 'beginner', years_of_experience: 1)
+  volunteer.skills.create!(name: 8, level: 'intermediate', years_of_experience: 3)
   volunteer.languages.create!(name: 2, level: 'native')
   volunteer.languages.create!(name: 3, level: 'fluent')
 end
