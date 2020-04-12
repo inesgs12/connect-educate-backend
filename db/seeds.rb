@@ -23,5 +23,22 @@
   volunteer.languages.create!(name: 3, level: 'fluent')
 end
 
+parent = Parent.create!(
+  email: "test55@email.com",
+  encrypted_password: "password#55",
+  password: "password#55",
+  first_name: "first_name_55",
+  last_name: "last_name_55",
+  bio: "I am volunteer #55 and I love connect-educate :D",
+  birth_date: "23/01/1994"
+)
+parent.save
+task = Task.create!(content: 'cool content', skill_id: 1, parent_id: parent.id)
+task.save
+task2 = Task.create!(content: 'cool content', skill_id: 1, parent_id: parent.id)
+task2.save
+Message.create!(content: 'im a message', user_id: parent.id, task_id: task.id)
+Message.create!(content: 'im another message', user_id: parent.id, task_id: task2.id)
+
 
 # We should create an Anonymous user so that Posts can have user_id as a reference, in case people do want to be logged in and post with their name appearing. As this would be required, then when Anon is selected a fake user should be appointed to this post?
