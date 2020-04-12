@@ -33,9 +33,9 @@ parent = Parent.create!(
   birth_date: "23/01/1994"
 )
 parent.save
-task = Task.create!(content: 'cool content', skill_id: 1, parent_id: parent.id)
+task = Task.create!(content: 'cool content', skill: 'really cool skill', parent_id: parent.id)
 task.save
-task2 = Task.create!(content: 'cool content', skill_id: 1, parent_id: parent.id)
+task2 = Task.create!(content: 'cool content', skill: 'another cool skill', parent_id: parent.id)
 task2.save
 Message.create!(content: 'im a message', user_id: parent.id, task_id: task.id)
 Message.create!(content: 'im another message', user_id: parent.id, task_id: task2.id)
