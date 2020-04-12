@@ -1,6 +1,7 @@
 module Api
   module V1
     class AssignVolunteerController < ApplicationController
+      before_action :authenticate_user!
       def update
         params.require(:id)
         params.require(:volunteer)
