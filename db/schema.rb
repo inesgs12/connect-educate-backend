@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_12_080040) do
+ActiveRecord::Schema.define(version: 2020_04_12_121000) do
 
   create_table "jwt_blacklist", force: :cascade do |t|
     t.string "jti", null: false
@@ -46,32 +46,14 @@ ActiveRecord::Schema.define(version: 2020_04_12_080040) do
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
-  create_table "posts_languages", force: :cascade do |t|
-    t.integer "post_id"
-    t.integer "language_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["language_id"], name: "index_posts_languages_on_language_id"
-    t.index ["post_id"], name: "index_posts_languages_on_post_id"
-  end
-
-  create_table "posts_skills", force: :cascade do |t|
-    t.integer "post_id"
-    t.integer "skill_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["post_id"], name: "index_posts_skills_on_post_id"
-    t.index ["skill_id"], name: "index_posts_skills_on_skill_id"
-  end
-
   create_table "skills", force: :cascade do |t|
     t.integer "name"
     t.string "level"
     t.integer "years_of_experience"
-    t.integer "volunteer_id"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["volunteer_id"], name: "index_skills_on_volunteer_id"
+    t.index ["user_id"], name: "index_skills_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
