@@ -5,4 +5,12 @@ class User < ApplicationRecord
   validates :first_name, presence: true
 
   has_many :messages
+
+  def volunteer?
+    type == "Volunteer"
+  end
+
+  def parent?
+    type == "Parent"
+  end
 end
