@@ -32,7 +32,7 @@ module Api
 
                 user = User.new(params[:user])
 
-                if user.valid>
+                if user.valid?
                     user.save
                     render json: user
                 else
