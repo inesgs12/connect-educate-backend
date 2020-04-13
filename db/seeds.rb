@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Volunteer.destroy_all
 Parent.destroy_all
-Messages.destroy_all
+Message.destroy_all
 
 10.times do |i|
   volunteer = Volunteer.create!(
