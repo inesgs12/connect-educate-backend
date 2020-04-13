@@ -40,10 +40,10 @@ ActiveRecord::Schema.define(version: 2020_04_12_224935) do
     t.integer "name"
     t.string "level"
     t.integer "years_of_experience"
-    t.integer "volunteer_id"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["volunteer_id"], name: "index_skills_on_volunteer_id"
+    t.index ["user_id"], name: "index_skills_on_user_id"
   end
 
   create_table "tasks", force: :cascade do |t|
