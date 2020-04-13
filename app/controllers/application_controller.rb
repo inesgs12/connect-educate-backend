@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::API
   devise_group :user, contains: [:parent, :volunteer]
   before_action :configure_permitted_parameters, if: :devise_controller?
+  acts_as_token_authentication_handler_for User, fallback: :none
 
   def render_resource(resource)
     if resource.errors.empty?
@@ -34,5 +35,11 @@ class ApplicationController < ActionController::API
                                         bio
                                         birth_date
                                       ])
+
+    devise_parameter_sanitizer.permit(:sign_in,
+                                        keys: %i[
+                                          email
+                                          password
+                                        ])
   end
 end
