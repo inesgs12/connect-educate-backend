@@ -5,6 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Volunteer.destroy_all
+Parent.destroy_all
+Messages.destroy_all
 
 10.times do |i|
   volunteer = Volunteer.create!(
@@ -39,6 +42,8 @@ task2 = Task.create!(content: 'I would like help with physics', skill: 'science'
 task2.save
 task3 = Task.create!(content: 'I would like help with chemistry', skill: 'science', parent_id: parent.id)
 task3.save
+
+
 Message.create!(content: 'im task 1 message', user_id: parent.id, task_id: task.id)
 Message.create!(content: 'im another task 1 message', user_id: parent.id, task_id: task.id)
 Message.create!(content: 'im a task 2 message', user_id: parent.id, task_id: task2.id)
