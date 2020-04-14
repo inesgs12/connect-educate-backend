@@ -1,24 +1,42 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Connected Learning is a platform that helps parents to access mentors and online resources to support their children’s needs and wellbeing. The app is one of the solutions presented at the Women Driven Development #UKvsCovidHack 
 
-Things you may want to cover:
+We placed the parent’s experience at the heart of the design, providing:
+- An easy-to-use landing page where parents can raise questions for mentors.
+- Simple registration so busy parents can submit requests quickly.
+An offline SMS journey for parents who do not have access to the internet.
+- UI for parents who do not speak English to increase accessibility.
 
-* Ruby version
+# Prerequisites
 
-* System dependencies
+## Backend (this repo)
+**Ruby on Rails API / device for authentication**
+- Ruby version 2.6.1
+- git clone https://github.com/inesgs12/connect-educate-backend.git
+- cd connect-educate-backend
+- git checkout dev
+- gem install rails
+- bundle install
+- rails db:migrate
+- rails db: seed if you want to start working with some data
+- rails s (this will start your server on port 3000)
 
-* Configuration
+To link frontend & backend read the following.
 
-* Database creation
+## Frontend 
+**React & Redux** 
+- git clone https://github.com/WinSanPang/connect-educate-frontend.git
+- cd connect-educate-frontend
+- yarn install && yarn start (this will start your server on port 3001)
 
-* Database initialization
+## To Do's 
+Please check both repos (front and backend) for raised issues. We achieved so much during the hackathon but there's still a lot to do! 
 
-* How to run the test suite
+- One of our priorities is to link backend and frontend properly. 
+- Deploy both repos to heroku: we think there is an issue with our db being sqlite and also have a single-inheritance table for users. 
 
-* Services (job queues, cache servers, search engines, etc.)
+### Please always create a new branch of dev and raise a pull request once you are done. Thanks! 
 
-* Deployment instructions
 
-* ...
+
