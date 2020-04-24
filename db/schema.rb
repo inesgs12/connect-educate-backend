@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_13_142746) do
+ActiveRecord::Schema.define(version: 2020_04_12_224935) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "jwt_blacklist", force: :cascade do |t|
     t.string "jti", null: false
@@ -20,7 +23,7 @@ ActiveRecord::Schema.define(version: 2020_04_13_142746) do
   create_table "languages", force: :cascade do |t|
     t.integer "name"
     t.string "level"
-    t.integer "volunteer_id"
+    t.bigint "volunteer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["volunteer_id"], name: "index_languages_on_volunteer_id"
@@ -28,10 +31,10 @@ ActiveRecord::Schema.define(version: 2020_04_13_142746) do
 
   create_table "messages", force: :cascade do |t|
     t.text "content"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "task_id"
+    t.bigint "task_id"
     t.index ["task_id"], name: "index_messages_on_task_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
@@ -40,9 +43,9 @@ ActiveRecord::Schema.define(version: 2020_04_13_142746) do
     t.integer "name"
     t.string "level"
     t.integer "years_of_experience"
+    t.bigint "volunteer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "volunteer_id"
     t.index ["volunteer_id"], name: "index_skills_on_volunteer_id"
   end
 
@@ -52,11 +55,10 @@ ActiveRecord::Schema.define(version: 2020_04_13_142746) do
     t.datetime "updated_at", null: false
     t.string "task_language"
     t.integer "childs_age"
+    t.bigint "parent_id"
+    t.bigint "volunteer_id"
     t.string "skill"
-    t.integer "parent_id"
-    t.integer "volunteer_id"
     t.index ["parent_id"], name: "index_tasks_on_parent_id"
-    t.index ["skill"], name: "index_tasks_on_skill"
     t.index ["volunteer_id"], name: "index_tasks_on_volunteer_id"
   end
 
@@ -81,4 +83,10 @@ ActiveRecord::Schema.define(version: 2020_04_13_142746) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "languages", "users", column: "volunteer_id"
+  add_foreign_key "messages", "tasks"
+  add_foreign_key "messages", "users"
+  add_foreign_key "skills", "users", column: "volunteer_id"
+  add_foreign_key "tasks", "users", column: "parent_id"
+  add_foreign_key "tasks", "users", column: "volunteer_id"
 end
