@@ -14,7 +14,8 @@ module Api
       end
 
       def destroy
-        current_user&.authentication_token = nil
+        current_user = User.find_by_email(request.headers['X-User-Email'])
+        current_user.authentication_token = nil
         if current_user&.save
           head(:ok)
         else
