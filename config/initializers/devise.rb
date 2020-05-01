@@ -285,7 +285,12 @@ Devise.setup do |config|
 
   config.warden do |manager|
     manager.default_strategies(scope: :user).unshift :authentication_token
-    manager.default_strategies(scope: :volunteer).unshift :authentication_token
+    manager.default_strategies(scope: :message_thread).unshift :authentication_token
+    manager.default_strategies(scope: :message_threads_for_parent).unshift :authentication_token
+    manager.default_strategies(scope: :assign_volunteer).unshift :authentication_token
+    manager.default_strategies(scope: :unassign_volunteer).unshift :authentication_token
+    manager.default_strategies(scope: :message).unshift :authentication_token
+    manager.default_strategies(scope: :task).unshift :authentication_token
   end
 
   # ==> Mountable engine configurations
