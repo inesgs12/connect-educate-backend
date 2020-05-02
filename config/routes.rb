@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :tasks
       post 'create_parent_and_task',  to: 'tasks#create_parent_and_task'
+      get 'unassigned-tasks', to: 'tasks#unassigned_tasks'
       resources :messages
       resources :volunteers
       resources :languages
