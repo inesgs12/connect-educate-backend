@@ -36,6 +36,11 @@ module Api
         end
       end
 
+      def unassigned_tasks
+        unassigned_tasks = Task.where(volunteer_id: nil)
+        render json: unassigned_tasks
+      end
+
       private
 
       def create_task(parent, task_params)
