@@ -7,7 +7,7 @@ module Api
       def create
         user = User&.find_by_email(params['email'])
         if user&.valid_password?(params['password'])
-          render json: user.as_json(only: [:id, :email, :authentication_token]), status: :created
+          render json: user.as_json(only: [:id, :email, :type, :authentication_token]), status: :created
         else
           head(:unauthorized)
         end
