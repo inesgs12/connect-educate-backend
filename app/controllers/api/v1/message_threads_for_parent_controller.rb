@@ -1,7 +1,7 @@
 module Api
   module V1
     class MessageThreadsForParentController < ApplicationController
-      # before_action :authenticate_user!
+      before_action :authenticate_user!
       def show
         user_id = params[:id]
         tasks = Task.where(parent_id: user_id)
