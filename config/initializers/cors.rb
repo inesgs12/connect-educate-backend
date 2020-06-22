@@ -10,16 +10,6 @@ Rails.application.config.middleware.insert_before 0, Rack::Cors do
     origins '*'
 
     resource '*',
-      headers: :any,
-      methods: [:get, :post, :put, :patch, :delete, :options, :head]
-  end
-end
-
-Rails.application.config.middleware.insert_before 0, Rack::Cors do
-  allow do
-    origins 'https://infinite-coast-05053.herokuapp.com/*'
-
-    resource '/api/*',
       headers: %w(Authorization),
       methods: [:get, :post, :put, :patch, :delete, :options, :head],
       expose: %w(Authorization),
