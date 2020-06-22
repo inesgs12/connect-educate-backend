@@ -7,13 +7,11 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins '*'
-
+    origins 'https://infinite-coast-05053.herokuapp.com/'
     resource '*',
-      headers: %w(Authorization),
+      headers: :any,
       methods: [:get, :post, :put, :patch, :delete, :options, :head],
-      expose: %w(Authorization),
-      max_age: 600
+      credentials: true
   end
 end
 
