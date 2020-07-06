@@ -2,6 +2,7 @@ module Api
   module V1
     class SessionsController < Devise::SessionsController
       skip_before_action :verify_signed_out_user
+      # before_action :authenticate_user!
       respond_to :json
 
       def create
