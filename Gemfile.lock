@@ -99,7 +99,8 @@ GEM
       mini_portile2 (~> 2.4.0)
     orm_adapter (0.5.0)
     pg (1.2.3)
-    puma (3.12.6)
+    puma (4.3.11)
+      nio4r (~> 2.0)
     rack (2.2.3)
     rack-cors (1.1.1)
       rack (>= 2.0.0)
@@ -179,7 +180,7 @@ DEPENDENCIES
   language_list (~> 1.2, >= 1.2.1)
   listen (>= 3.0.5, < 3.2)
   pg
-  puma (~> 3.12)
+  puma (~> 4.3)
   rack-cors
   rails (~> 5.2.3)
   simple_token_authentication
